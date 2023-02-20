@@ -11,6 +11,7 @@ app.get("/",(req,res)=>{
     res.send("Home page")
 })
 app.use("/users",UserRouter)
+app.use(authenticate)
 app.use("/posts",PostRouter)
 app.listen(process.env.port,async()=>{
     try{
