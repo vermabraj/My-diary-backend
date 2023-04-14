@@ -11,7 +11,7 @@ app.get("/",(req,res)=>{
     res.send("Home page")
 })
 app.use("/users",UserRouter)
-app.use(authenticate)
+
 app.use("/posts",PostRouter)
 app.listen(process.env.port,async()=>{
     try{
@@ -20,5 +20,5 @@ app.listen(process.env.port,async()=>{
     }catch(err){
         console.log(err.message)
     }
-    console.log("Server is running at port 8080");
+    console.log("Server is running at port 4500");
 })
