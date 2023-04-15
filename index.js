@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require("cors");
 const app = express()
 const {connection} = require("./db");
 const {authenticate} = require("./Middlewares/authenticate.middleware")
@@ -8,6 +9,7 @@ const {  cartRoute } = require("./Routes/Cart.Route");
 require("dotenv").config()
 app.use(express.json())
 
+app.use(cors());
 app.get("/",(req,res)=>{
     res.send("Home page")
 })
