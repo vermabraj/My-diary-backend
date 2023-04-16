@@ -41,7 +41,13 @@ if(user.length>0){
     bcrypt.compare(password,user[0].password,async(err,result)=>{
 if(result){
     const token = jwt.sign({userID:user[0]._id},"masai");
-    res.send({"msg":"logged in","token":token})
+    res.send({
+      first_name: user[0].first_name,
+      last_name: user[0].last_name,
+      gender: user[0].gender,
+      email: user[0].email,
+      token: token,
+    });
 }else{
     res.send({"msg":"wrong password"})
 }
