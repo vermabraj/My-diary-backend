@@ -6,6 +6,7 @@ const {authenticate} = require("./Middlewares/authenticate.middleware")
 const {UserRouter} = require("./Routes/User.routes")
 const {PostRouter} = require("./Routes/Post.routes")
 const {  cartRoute } = require("./Routes/Cart.Route");
+const { galleryRoute } = require('./Routes/Gallery.Route');
 require("dotenv").config()
 app.use(express.json())
 
@@ -17,6 +18,7 @@ app.use("/users",UserRouter)
 
 app.use("/posts",PostRouter)
 app.use("/carts", cartRoute);
+app.use("/gallery", galleryRoute);
 
 app.listen(process.env.port,async()=>{
     try{
